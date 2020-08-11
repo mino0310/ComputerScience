@@ -1,9 +1,8 @@
 #include <stdio.h>
 int main(void)
 {
-	int a,b;
+	int a, b;
 	scanf("%d %d", &a, &b);
-	printf("%d", b >= a);
-
+	printf("%d", a&&b || !a&&!b);
 	return 0;
 }

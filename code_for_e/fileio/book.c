@@ -16,6 +16,7 @@ int search_book(BOOK *book_list, int total_num_book);
 int borrow_book(BOOK *book_list);
 int return_book(BOOK *book_list);
 int print_book_list(BOOK *book_list, int total_num_book);
+int retrieve_book_info(BOOK **book_list, int *total_num_book);
 
 int main(void)
 {
@@ -23,6 +24,7 @@ int main(void)
 	int num_total_book = 0;
 
 	BOOK *book_list;
+	int i;
 
 	printf("도서관의 최대 보관 장서 수를 설정해주세요 : ");
 	scanf("%d", &user_choice);
@@ -38,7 +40,8 @@ int main(void)
     	printf("4. 책을 반납하기 \n");
     	printf("5. 프로그램 종료 \n");
 		printf("6. 책들의 내용을 book_list.txt에 출력 \n");
-
+		printf("7. 책들의 내용을 book_list.txt에서 불러옴 \n");
+		printf("8. 책들의 목록을 출력 \n");
     	printf("당신의 선택은 : ");
     	
 		scanf("%d", &user_choice);
@@ -54,6 +57,17 @@ int main(void)
 			break;
 		else if (user_choice == 6)
 			print_book_list(book_list, num_total_book);
+		else if (user_choice == 7)
+			retrieve_book_info(&book_list, &num_total_book);
+		else if (user_choice == 8)
+			for (i = 0; i < num_total_book; i++)
+			{
+				printf("%s // %s // %s // ", book_list[i].book_name, book_list[i].auth_name, book_list[i].publ_name);
+				if (book_list[i].borrowed == 0)
+					printf("NO\n");
+				else
+					printf("YES\n");
+			}
 	}
 	free(book_list);
 	return 0;
@@ -73,12 +87,13 @@ int print_book_list(BOOK *book_list, int total_num_book)
 	fprintf(fp, "책 이름/저자 이름/출판사/반납 유무 \n");
 	for (i = 0; i < total_num_book; i++)
 	{
-		fprintf(fp, "%s / %s / %s", book_list[i].book_name, book_list[i].auth_name, book_list[i].publ_name);
+		fprintf(fp, "%s\n/\n%s\n/%s\n", book_list[i].book_name, book_list[i].auth_name, book_list[i].publ_name);
 		if (book_list[i].borrowed == 0)
 			fprintf(fp, " /NO \n");
 		else
 			fprintf(fp, " /YES \n");
 	}
+	printf("출력 완료! \n");
 	fclose(fp);
 	return 0;
 }
@@ -126,6 +141,17 @@ int search_book(BOOK *book_list, int total_num_book)
 			}
 		}
 	}
+	else if (user_input == 3)
+	{
+		for (i = 0; i < total_num_book; i++)
+		{
+			if (compare(book_list[i].publ_name, user_search))
+			{
+				printf("번호 : %d // 책 이름 : %s // 지은이 : %s // 출판사 : %s \n", i, book_list[i].book_name, book_list[i].auth_name, book_list[i].publ_name);
+			}
+		}
+	}
+
 	return 0;
 }
 
@@ -142,6 +168,45 @@ char compare(char *str1, char *str2)
 	return 0;
 }
 
+int retrieve_book_info(BOOK **book_list, int *total_num_book)
+{
+	FILE *fp = fopen("book_list.txt", "r");
+	int total_book;
+	int i;
+	char str[10];
+
+	if (fp == NULL)
+	{
+		printf("지정한 파일을 찾을 수 없습니다! \n");
+		return -1;
+	}
+
+	fscanf(fp, "%d", &total_book);
+	(*total_num_book) = total_book;
+
+	free(*book_list);
+	(*book_list) = (BOOK *)malloc(sizeof(BOOK) * total_book);
+
+	if (*book_list == NULL)
+	{
+		printf("\n ERROR \n");
+		return -1;
+	}
+	for (i = 0; i < total_book; i++)
+	{
+		fscanf(fp, "%s", (*book_list)[i].book_name);
+		fscanf(fp, "%s", (*book_list)[i].auth_name);
+		fscanf(fp, "%s", (*book_list)[i].publ_name);
+		fscanf(fp, "%s", str);
+
+		if (compare(str, "YES"))
+			(*book_list)[i].borrowed = 1;
+		else if (compare(str, "NO"))
+			(*book_list)[i].borrowed = 0;
+	}
+	fclose(fp);
+	return 0;
+}
 int borrow_book(BOOK *book_list)
 {
 	int book_num;

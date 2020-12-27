@@ -7,9 +7,12 @@ class MyString {
     int memory_capacity;    // 현재 할당된 용량
 
     public:
+    // capacity 만큼 미리 할당함.
+    explicit MyString(int capacity);
+    
     // 문자 하나로 생성
     MyString(char c);
-
+    
     // 문자열로부터 생성
     MyString(const char *str);
 
@@ -40,7 +43,14 @@ class MyString {
     int find(int find_from, char c) const;
 
     int compare(const MyString& str) const;
+    bool operator==(MyString& str);
 };
+
+MyString::MyString(int capacity) {
+    string_content = new char[capacity];
+    string_length = 0;
+    memory_capacity = capacity;
+}
 
 MyString::MyString(char c) {
     string_content = new char[1];
@@ -261,9 +271,26 @@ int MyString::compare(const MyString& str) const {
     return -1;
 }
 
-int main() {
-    MyString str1("abcdef");
-    MyString str2("abcde");
+bool MyString::operator==(MyString& str) {
+    return !compare(str); // str과 같으면 compare에서 0을 리턴한다.
+}
 
-    std::cout << "str1 and str2 compare : " << str1.compare(str2) << std::endl;
+int main() {
+    MyString str1("a word");
+    MyString str2("sentence");
+    MyString str3("sentence");
+
+    if (str1 == str2)
+        std::cout << "str1 와 str2 같다." << std::endl;
+    else
+    {
+        std::cout << "str1 와 str2 다르다." << std::endl;
+    }
+
+    if (str2 == str3)
+        std::cout << "str2 와 str3 같다." << std::endl;
+    else
+    {
+        std::cout << "str2 와 str3 다르다." << std::endl;
+    }  
 }

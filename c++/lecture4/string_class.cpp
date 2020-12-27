@@ -38,6 +38,8 @@ class MyString {
 
     MyString& erase(int loc, int num);
 
+    MyString operator+(const MyString& str);
+
     int find(int find_from, const MyString& str) const;
     int find(int find_from, const char *str) const;
     int find(int find_from, char c) const;
@@ -275,22 +277,21 @@ bool MyString::operator==(MyString& str) {
     return !compare(str); // str과 같으면 compare에서 0을 리턴한다.
 }
 
+MyString MyString::operator+(const MyString& str) {
+    char *prev_content = string_content;
+    int lenn = string_length + str.string_length;
+    string_content = new char[string_length + str.string_length];
+    insert(0, prev_content);
+    insert(string_length + 1, str.string_content);
+    delete[] prev_content;
+    return (*this);
+}
+
 int main() {
     MyString str1("a word");
     MyString str2("sentence");
-    MyString str3("sentence");
 
-    if (str1 == str2)
-        std::cout << "str1 와 str2 같다." << std::endl;
-    else
-    {
-        std::cout << "str1 와 str2 다르다." << std::endl;
-    }
-
-    if (str2 == str3)
-        std::cout << "str2 와 str3 같다." << std::endl;
-    else
-    {
-        std::cout << "str2 와 str3 다르다." << std::endl;
-    }  
+    str1 = str1 + str2;
+    
+    str1.println();
 }

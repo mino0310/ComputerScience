@@ -12,7 +12,6 @@ class Complex {
     Complex(const Complex& c) { real = c.real, img = c.img; }
     Complex(const char *str);
 
-
     Complex operator+(const Complex& c);
     Complex operator-(const Complex& c);
     Complex operator*(const Complex& c);
@@ -30,10 +29,20 @@ class Complex {
 
     Complex& operator=(const Complex& c);
 
+    friend Complex operator+(const Complex& a, const Complex& b);
+    friend std::ostream& operator<<(std::ostream& os, const Complex& c);
+    
     void println() { std::cout << "( " << real << " , " << img << " ) " << std::endl;}
 };
 
-
+Complex operator+(const Complex& a, const Complex& b) { 
+    Complex temp(a.real + b.real, a.img + b.img);
+    return temp;
+}
+std::ostream& operator<<(std::ostream& os, const Complex& c) {
+    os << "( " << c.real << " , " << c.img << " ) ";
+    return os;
+}
 Complex::Complex(const char *str) {
     // 입력받은 문자열을 분석하여 real 부분과 img부분을 찾아야 한다.
     // 문자열의 꼴은 다음과 같다. "[부호](실수부)(부호)i(허수부)"
@@ -149,12 +158,7 @@ Complex& Complex::operator=(const Complex& c) {
 }
 int main() {
     Complex a(0, 0);
-    a = a + "-1.1 + i3.923";
-    a.println();
-    a = a - "1.2 -i1.823";
-    a.println();
-    a = a * "2.3+i22";
-    a.println();
-    a = a / "-12+i55";
-    a.println();
+    a = "-1.1 + i3.923" + a;
+    std::cout << "a 의 값은: " << a << " 이다. " << std::endl;
+ 
 }

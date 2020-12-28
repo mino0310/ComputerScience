@@ -31,14 +31,13 @@ class MyString {
     MyString& assign(const char * str);
     
     char at(int i) const;
+    char& operator[](const int index);
 
     MyString& insert(int loc, const MyString& str);
     MyString& insert(int loc, const char *str);
     MyString& insert(int loc, char c);
 
     MyString& erase(int loc, int num);
-
-    MyString operator+(const MyString& str);
 
     int find(int find_from, const MyString& str) const;
     int find(int find_from, const char *str) const;
@@ -153,6 +152,7 @@ char MyString::at(int i) const {
         return string_content[i];
     }
 }
+char& MyString::operator[](const int index) { return string_content[index]; }
 
 MyString& MyString::insert(int loc, const MyString& str) {
     // 이는 i의 위치 바로 앞에 문자를 삽입하게 된다. 
@@ -277,21 +277,9 @@ bool MyString::operator==(MyString& str) {
     return !compare(str); // str과 같으면 compare에서 0을 리턴한다.
 }
 
-MyString MyString::operator+(const MyString& str) {
-    char *prev_content = string_content;
-    int lenn = string_length + str.string_length;
-    string_content = new char[string_length + str.string_length];
-    insert(0, prev_content);
-    insert(string_length + 1, str.string_content);
-    delete[] prev_content;
-    return (*this);
-}
-
 int main() {
-    MyString str1("a word");
-    MyString str2("sentence");
+    MyString str("abcdef");
+    str[3] = 'c';
 
-    str1 = str1 + str2;
-    
-    str1.println();
+    str.println();
 }

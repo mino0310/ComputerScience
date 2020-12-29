@@ -25,10 +25,13 @@ class Derived : private Base {
 
 int main() {
     Base p;
+    // Base 에서는 parent_string 이 public이므로 외부에서 당연히 접근가능하다. 
 
     std::cout << p.parent_string << std::endl;
 
     Derived c;
+    // Derived 에서는 parent_string이 (private상속을 받았기 때문에) private이 되어서 외부접근이
+    // 불가능하다.
     std::cout << c.parent_string << std::endl;
 
     return 0;

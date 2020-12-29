@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 class Base {
     std::string s;
@@ -13,21 +14,21 @@ class Derived : public Base {
     std::string s;
 
     public:
-    Derived() : Base(), s("파생") {
+    Derived() : s("파생"), Base() {
         std::cout << "파생 클래스" << std::endl;
-
-        // Base 에서 what()을 물려받았으므로 Derived에서 당연히 호출가능하다.
-        what();
     }
     void what() { std::cout << s << std::endl; }
 };
 
 int main() {
-    std::cout << " === 기반 클래스 생성 === " << std::endl;
     Base p;
-
-    std::cout << " === 파생 클래스 생성 === " << std::endl;
     Derived c;
+
+    std::cout << "=== 포인터 버전 ===" << std::endl;
+    Base* p_p = &p;
+
+    Derived* p_c = static_cast<Derived*>(p_p);
+    p_c->what();
 
     return 0;
 }

@@ -34,7 +34,7 @@ int is_full(QueueType *q)
 }
 
 // 삽입 함수 
-void enqueue(QueueType *q, element item)
+void enqueue(QueueType *q, element item)  
 {
     if (is_full(q))
         error("큐가 포화상태입니다");

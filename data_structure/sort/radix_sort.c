@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define MAX_QUEUE_SIZE 100
 typedef int element;
@@ -59,8 +60,32 @@ void radix_sort(int list[], int n)
     for (b = 0; b < BUCKETS; b++) init_queue(&queues[b]); // 큐들의 초기화
 
     for (d = 0; d < DIGITS; d++) {
-        for (i = 0; i < n; i++) {
+        for (i = 0; i < n; i++) { // 데이터들을 자리수에 따라 큐에 삽입
             enqueue(&queues[(list[i] / factor) % 10], list[i]);
         }
+
+        for (b = i = 0; b < BUCKETS; b++) { // 버킷에서 꺼내어 list로 합친다. 
+            while (!is_empty(&queues[b])) {
+                list[i++] = dequeue(&queues[b]);
+            }
+        }
+        factor *= 10; // 그 다음 자리수로 간다. 
     }
+}
+
+#define SIZE 10
+
+int main() {
+    int list[SIZE];
+    srand(time(NULL));
+    for (int i = 0; i < SIZE; i++) {
+        list[i] = rand() % 100;
+    }
+
+    radix_sort(list, SIZE);
+    for (int i = 0; i < SIZE; i++) {
+        printf("%d ", list[i]);
+    }
+    printf("\n");
+    return 0;
 }

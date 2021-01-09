@@ -2,8 +2,6 @@
 #include <string>
 #include <cstring>
 
-
-
 size_t GetStringSize(const char *s) { return strlen(s); }
 
 size_t GetStringSize(const std::string& s) { return s.size(); }

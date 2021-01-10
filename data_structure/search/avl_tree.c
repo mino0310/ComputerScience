@@ -19,7 +19,7 @@ int get_height(AVLNode *node)
 }
 
 // 노드의 균형 인수를 반환
-int get_balance(AVLNode *node)
+int get_balance(AVLNode *node)ls
 {
     if (node == NULL) return 0;
 

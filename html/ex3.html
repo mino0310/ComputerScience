@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>갱갱</title>
+        <title>새벽에 자는 이유는?</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <h1><a href="index.html">갱갱위키</a></h1>
-       <input id="night_day" type="button" value="night" onclick="
+        <h1><a href="index.html">위키</a></h1>
+        <input id="night_day" type="button" value="night" onclick="
         var target = document.querySelector('body');
         if (this.value === 'night') {
             target.style.backgroundColor = 'black';
@@ -25,6 +25,12 @@
             target.style.color = 'black';
             this.value = 'night';
 
+            var alist = document.querySelectorAll('a');
+            var i = 0;
+            while (i < alist.length) {
+                alist[i].style.color = 'blue';
+                i = i + 1;
+            }
         }
         ">
         <div id="grid">
@@ -32,34 +38,25 @@
                 <li><a href="1.html">좋아하는 음식</a></li>
                 <li><a href="2.html">빗자루란?</a></li>
                 <li><a href="3.html">새벽에 자는 이유는?</a></li>
-                <li><a href="4.html">갱갱에게 야코란?</a></li>
             </ol>
             <div id="article">
-                <h2>갱갱은 누구인가?</h2>
+                <h2>새벽에 자는 이유는?</h2>
                 <p>
-                갱갱은 94년생 의정부 출신의 호탕아다. 빗자루는 그의 무기이며 떡볶이를 좋아한다. </p>
-                <p style="margin-top:40px;">
-                매운 음식이라면 다 좋아하나, 요즘엔 건강을 위해 줄이고 있다.</p>
+                늦게 일어나니까 </p><p style="margin-top:40px">
+                
+                생각해보니 늦게 자는 것이 아니라 일찍 자는 것이다. </p>
             </div>
         </div>
-        <input id="night_day2" type="button" value="night" onclick="
-        var target = document.querySelector('body');
+        <input type="button" value="night" onclick="
         if (this.value === 'night') {
             target.style.backgroundColor = 'black';
             target.style.color = 'white';
             this.value = 'day';
-            var alist = document.querySelectorAll('a');
-            var i = 0;
-            while (i < alist.length) {
-                alist[i].style.color = 'powderblue';
-                i = i + 1;
-            }
         } else {
             target.style.backgroundColor = 'white';
             target.style.color = 'black';
             this.value = 'night';
         }
         ">
-
     </body>
 </html>

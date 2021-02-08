@@ -1,0 +1,15 @@
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/bin/Debug/net5.0/myApp.deps.json
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/bin/Debug/net5.0/myApp.runtimeconfig.json
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/bin/Debug/net5.0/myApp.runtimeconfig.dev.json
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/bin/Debug/net5.0/myApp.dll
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/bin/Debug/net5.0/ref/myApp.dll
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/bin/Debug/net5.0/myApp.pdb
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/obj/Debug/net5.0/myApp.csprojAssemblyReference.cache
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/obj/Debug/net5.0/myApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/obj/Debug/net5.0/myApp.AssemblyInfoInputs.cache
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/obj/Debug/net5.0/myApp.AssemblyInfo.cs
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/obj/Debug/net5.0/myApp.csproj.CoreCompileInputs.cache
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/obj/Debug/net5.0/myApp.dll
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/obj/Debug/net5.0/ref/myApp.dll
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/obj/Debug/net5.0/myApp.pdb
+/Users/minhkim/42seoul/computer_science/C#/HelloWorld/myApp/obj/Debug/net5.0/myApp.genruntimeconfig.cache

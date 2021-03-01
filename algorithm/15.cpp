@@ -26,4 +26,8 @@ bool isPrime(int x)
         i++;
     }
     return (true);
+<<<<<<< HEAD
 } 
+=======
+} 
+>>>>>>> 2c2cb1fd04d85c23438d043d8a1e924cf03062d4

@@ -3,35 +3,62 @@
 #include <iostream>
 #include <algorithm>
 
+// int is_prime(int n);
+
+// int main(void) {
+//     int i, cnt = 0, n;
+
+//     scanf("%d", &n);
+//     std::vector<int> output(n + 1);
+//     int start = n;
+//     while (n){
+//         i = 2;
+//         int tmp = n;
+//         while (i <= tmp) {
+//             while (is_prime(i) && tmp % i == 0) {
+//                 output[i]++;
+//                 tmp /= i;
+//             }
+//             i++;
+//         }
+//         n--;
+//     }
+//     if (output[2] > output[5]) cnt = output[5];
+//     else cnt = output[2];
+
+//     printf("%d", cnt);
+//     return 0;
+// }
+// int is_prime(int n) {
+    
+//     if (n == 1) return 0;
+//     if (n == 2) return 1;
+//     if (n == 3) return 1;
+//     for (int i = 2; i < n; i++) {
+//         if (n % i == 0) return 0;
+//     }
+//     return 1;
+// }
+
 int main(void)
 {
-    int n, chk[3] = {0,};
+    int n, chk[3] = {0,}, j;
     scanf("%d", &n);
-
     for (int i = 2; i <= n; i++) {
-        
+        int tmp = i;
+        j = 2;
+        while (1) {
+            if (tmp % j == 0) {
+                tmp /= j;
+                if (j == 2) chk[1]++;
+                else if (j == 5) chk[2]++;
+            }
+            else j++;
+            if (tmp == 1) break ;
+        }
     }
-
+    if (chk[1] > chk[2]) cnt = chk[2];
+    else cnt = chk[1];
+    printf("%d", cnt);
     return 0;
 }
-
-N! 에서 0의 개수를 구하는 문제
-세상 천재처럼 한번에 풀려고하지말고 차근차근히 실마리를 찾아나가자
-우선 N이 1,000까지 나오니까 팩토리얼을 그대로 구해버리면
-오버플로가 나버린다.
-그러니까 숫자 자료형으로 다루면 안 된다.
-
-왜 굳이 팩토리얼로 입력값이 주어지는지 생각해봐야 한다
-팩토리얼은 숫자들의 곱이다. 즉 숫자가 약수들의 곱으로 표현
-이건 다 똑같잖아 뭔수든
-
-아니다 팩토리얼로 주어지면 그 숫자가 5를 넘기만 하면
-2와 5가 무조건 있으니까 10이 곱해지고 그러니가 0은 하나는 생긴다는 것
-앞 문제처럼 소인수분해를 활용하는 것인데 좀 더 간단한듯?
-소인수 분해를 다 할 필요도 없고 2로 쫙 나누고 그 갯수 세고
-5로 쫙 나누고 갯수 세고
-2랑 5를 한 세트로 묶었을 때 몇 세트가 묶이는지에 따라서 
-10의 자리의 갯수가 나오지
-
-일의자리부터 연손적으로 0이 몇개 있는지는 곱해지는 10의 개수랑 관련있지
-그러니까 2랑 5가 몇번 곱해지는지 알면 되는 것

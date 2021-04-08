@@ -3,39 +3,28 @@
 #include <algorithm>
 #include <vector>
 
+
 int main(void)
 {
-    int n, i, idx, j;
+    int n, i, j, tmp, inversion_seq[101] = {0, }, initial_seq[101] = {0, };
 
     scanf("%d", &n);
-
-    std::vector<int> is(n+1), output(n+1);
-    
     for (i = 1; i <= n; i++) {
-        scanf("%d", &is[i]);
+        scanf("%d", &inversion_seq[i]);
     }
-    // for (i = 1; i <= n; i++) {
-    //     printf("%d ", is[i]);
-    // }
-    // printf("\n");
-    for (i = 1; i <= n; i++){
-        j = 1;
-        idx = 0;
-        while (j <= is[i]) {
-            if (output[j]) {
-                idx++;
-            }
-            else if (!output[j]) {
-                idx++;
-                j++;
+
+    for (i = n; i >= 1; i--) {
+        tmp = i;
+        for (j = i; j < inversion_seq[i] + i; j++) {
+            if (tmp < initial_seq[j + 1]) {
+                initial_seq[j] = initial_seq[j + 1];
             }
         }
-        output[++idx] = i; 
-        printf("output[%d] = %d\n", idx, output[idx]);
+        initial_seq[j] = tmp;
     }
 
     for (i = 1; i <= n; i++) {
-        printf("%d ", output[i]);
-    }
+        printf("%d ", initial_seq[i]);
+    } 
     return 0;
 }

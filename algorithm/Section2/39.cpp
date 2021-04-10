@@ -15,37 +15,28 @@ int main(void)
     for (i = 1; i <= m; i++) {
         scanf("%d", &second_arr[i]);
     }
-    j = 1;
-    k = 1;
-    i = 1; 
+    i = j = k = 1;
     while (1) {
-        if (first_arr[j] > second_arr[k]) {
-            output_arr[i++] = second_arr[k];
-            k++;
-            printf("2222\n");
+        if (first_arr[i] >= second_arr[j]) {
+            output_arr[k++] = second_arr[j++];
         }
-        else {
-            output_arr[i++] = first_arr[j];
-            j++;
-            printf("1111\n");
+        else if (first_arr[i] < second_arr[j]){
+            output_arr[k++] = first_arr[i++];
         }
-        if (first_arr[j] == 0) {
-            while (!second_arr[k]) {
-                output_arr[i++] = second_arr[k++];
+        if (first_arr[i] == 0) {
+            while (second_arr[j]) {
+                output_arr[k++] = second_arr[j++];
             }
             break ;
         }
-        // else {
-        //     while (!first_arr[j]) {
-        //         output_arr[i++] = first_arr[j];
-        //         j++;
-        //     }
-        //     break ;
-        // }
+        else if (second_arr[j] == 0) {
+            while (first_arr[i]) {
+                output_arr[k++] = first_arr[i++];
+            }
+            break ;
+        }
     }
-
-
-    for (i = 1; i <= n+m; i++) {
+    for (i = 1; i < k; i++) {
         printf("%d ", output_arr[i]);
     }
     return 0;

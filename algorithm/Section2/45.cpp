@@ -8,7 +8,7 @@ int remain_cnt(std::vector<int> prince, int n);
 
 int main(void)
 {
-    int n, k, i, l = 0, cnt = 0, cut = 0;
+    int n, k, i, l = 1, cnt = 0, cut = 0;
 
     scanf("%d %d", &n, &k);
     std::vector<int> prince(n + 1);
@@ -16,16 +16,22 @@ int main(void)
     for (i = 1; i <= n; i++) {
         prince[i] = i;
     }
-    while (remain_cnt(prince, n) != 1) {
-        l = (l + k) % n;
-        cut++;
-        printf("l is %d \n", l);
-
-        if (cut == 8) break;
-
-
-        prince[l] = 0;
-        
+    while ((cnt = remain_cnt(prince, n)) != 1) {
+        int tmp_cnt = 0, tmp = k;
+        i = l;
+        while (1) {
+            if (prince[i % n] != 0) {
+                tmp_cnt++;
+            }
+            i++;
+            if(tmp_cnt == k) {
+                prince[(i - 1) % n] = 0;
+                printf("this index number %d is zero!\n", (i - 1) % n);
+                break ;
+            }
+        }
+        l = i % n;
+        printf("now index = %d\n", l);
     }
     for (i = 1; i <= n; i++) {
         printf("%d ", prince[i]);

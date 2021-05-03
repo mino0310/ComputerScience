@@ -26,6 +26,12 @@
 public class Calculator {
     public static void main(String[] args) {
         System.out.println("Calculator class started");
+        Calculator calc = new Calculator();
+        int a = 10, b = 5;
+        System.out.println("add = " + calc.add(a,b ));
+        System.out.println("sub = " + calc.sub(a,b ));
+        System.out.println("mul = " + calc.mul(a,b ));
+        System.out.println("div = " + calc.div(a,b ));
     }
     public int add(int a, int b) {
         return (a + b);

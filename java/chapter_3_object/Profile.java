@@ -23,3 +23,27 @@
 //         System.out.println("My age is " + age);
 //     }
 // }
+
+public class Profile {
+    String name;
+    int age;
+    public static void main(String[] args) {
+        Profile sample = new Profile();
+        sample.setName("mino");
+        sample.setAge(29);
+        sample.printName();
+        sample.printAge();
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public void printName() {
+        System.out.println(name);
+    }
+    public void printAge() {
+        System.out.println(age);
+    }
+}

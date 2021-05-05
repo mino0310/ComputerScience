@@ -38,7 +38,6 @@ int main(void)
             printf("%d", pos);
             break ;
         }
-        else if (!queue[pos]) pos++;
     }
     return 0;
 }

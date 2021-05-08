@@ -15,6 +15,6 @@ public class MemberDTO {
     {
         this.name = name;
         this.phone = phone;
-        this.email = email;d
+        this.email = email;
     }
 }

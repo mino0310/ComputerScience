@@ -10,7 +10,7 @@ public class StaticBlockCheck {
         System.out.println("-------------------");
         System.out.println("Creating block2");
         StaticBlock block2 = new StaticBlock();
-        System.out.println("Created block2");
+        Sys0tem.out.println("Created block2");
     }
     public void makeStaticBlockObjectWithData() {
         System.out.println("data = "+StaticBlock.getData());

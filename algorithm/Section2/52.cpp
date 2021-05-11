@@ -14,7 +14,7 @@ int main(void)
 }
 
 int is_ugly(int n) {
-
+    
 }
 
 

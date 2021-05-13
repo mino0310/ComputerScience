@@ -10,15 +10,17 @@ int arr[1500] = {1, };
 int main(void)
 {
     int n, i, p1, p2, p3, min = 0;
-    p1 = p2 = p3 = 1;
+    p1 = p2 = p3 = 0;
 
     cin >> n;
 
     for (i = 1; i < n; i++) {
+        printf("arr[p1] = %d, arr[p2] = %d, arr[p3] = %d\n", arr[p1], arr[p2], arr[p3]);
         arr[p1] *= 2;
         arr[p2] *= 3;
         arr[p3] *= 5;
-        min = (arr[p1] > arr[p2]) ? (arr[p2] < arr[p3]) ? arr[p2] : ((arr[p1] > arr[p3]) ? arr[p3] : arr[p1]);
+        min = (arr[p1] > arr[p2]) ? ((arr[p2] < arr[p3]) ? arr[p3] : arr[p2]) : (arr[p1] < arr[p3]) ? arr[p1] : ((arr[p3] < arr[p2]) ? arr[p3] : arr[p2]);
+        //min = (arr[p1] > arr[p2]) ? (arr[p2] < arr[p3]) ? arr[p2] : ((arr[p1] > arr[p3]) ? arr[p3] : arr[p1]);
         arr[i] = min;
         if (arr[p1] == min && arr[p2] == min) p1++, p2++;
         else if (arr[p2] == min && arr[p3] == min) p2++, p3++;
@@ -44,9 +46,6 @@ int main(void)
 
 이 문제의 핵심은 무엇인가
 
-소인수분해가 2, 3, 5로만 이루어진다는 것은 무엇을 의미하는가
-2, 3, 5 로 해당 숫자들을 구성해볼 수 있다는 것이다.
-1부터 2, 3, 5 를 곱해가며 최솟값으로 배열을 채우면 된다. 그러면 2, 3, 5 의 곱으로 된 숫자들의 배열을 만들어낼 수 있다.
 
 소수로 나눠져야하고 && 그 소수 값이 2, 3, 5 여야만 한다.
 2, 3, 5가 주어졌으니 굳이 소수 판별을 할 필요 없고, 2, 3, 5로 나누어 떨어지지 않을 때까지 나누면 된다.

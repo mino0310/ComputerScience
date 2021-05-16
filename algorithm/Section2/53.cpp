@@ -19,5 +19,5 @@ int main(){
         cout << "0123456789abcdef"[s.top()];
         s.pop();
     }
-	return 0;
+	return 0; 
 }

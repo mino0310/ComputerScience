@@ -12,6 +12,7 @@ int main(void)
 
     cin >> n;
 
+    /*
     while (1)
         s.push(값) + P 출력
         if (s.top() == 1) 
@@ -19,7 +20,7 @@ int main(void)
         검사하는 값 증가 (1을 2로 증가)
     
     불가능은 어떻게 처리할 수 있지?
-
+    */
 
 
     for (int i = ; ;) {

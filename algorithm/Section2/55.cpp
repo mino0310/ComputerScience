@@ -2,67 +2,40 @@
 #include <algorithm>
 #include <stack>
 using namespace std;
-int arr_check(int arr[], int len, int val);
 
 int main(void)
 {
-    int n, input, i, in_cnt = 0, out_cnt = 0;
+    char output[100] = {0, };
+    int i, j, k, n, num_arr[31] = {0, }, input[31] = {0, };
+    cin >> n;
     stack<int> s;
 
-    cin >> n;
-   int arr[40] = {0, };
-   i = 1;
-   int j = 0;
-   for (int j = 0; j < n; j++)
-       cin >> arr[j];
-   j = 0;
-   while (1) {
-       if (s.empty() || s.top() != i) {
-           s.push(arr[j++]);
-           cout <<"P";
-           in_cnt++;
-       } else if (s.top() == i) {
-           cout << "O";
-           s.pop();
-           i++;
-           out_cnt++;
-       }
-       else {
-           cout << "impossible" << endl;
-           break;
-       }
-       if (out_cnt == n) break;
-       int k = 0;
-   }
-    return 0;
-}
-
-<<<<<<< HEAD
-    /*
-    while (1)
-        s.push(값) + P 출력
-        if (s.top() == 1) 
-        꺼내기+O출력
-        검사하는 값 증가 (1을 2로 증가)
-    
-    불가능은 어떻게 처리할 수 있지?
-    */
-
-   while (i) 
-    
-    for (int i = ; ;) {
-        cin >> input;
-        s.push(input);
-=======
-int arr_check(int arr[], int len, int val) {
-    int i; 
-
-    for (i = 0; i < len; i++) {
-        if (arr[i] == val) {
-            return 1;
-        }
->>>>>>> 52a665a68a5f53448c723b4604741be921d55bd1
+    for (i = 1; i <= n; i++) {
+        num_arr[i] = i;
     }
+    for (i = 1; i <= n; i++) {
+        cin >> input[i];
+    }
+    i = j = k = 1;
+
+    while (i <= n) 
+    {
+        s.push(input[i]);
+        output[k++] = 'P';
+        while (s.top() == num_arr[j])
+        {
+            s.pop();
+            cout << "O";
+            output[k++] = 'O';
+            j++;
+        }
+        i++;
+    }
+    if (!s.empty()) cout << "impossible" << endl;
+    for (i = 1; i <= n; i++) {
+        cout << output[i];
+    } 
+
     return 0;
 }
 

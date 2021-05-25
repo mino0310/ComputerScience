@@ -22,7 +22,8 @@ int main(void)
     불가능은 어떻게 처리할 수 있지?
     */
 
-
+   while (i) 
+    
     for (int i = ; ;) {
         cin >> input;
         s.push(input);

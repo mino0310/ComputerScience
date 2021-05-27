@@ -1,41 +1,50 @@
 #include <iostream>
 #include <algorithm>
 #include <stack>
+#include <vector>
+
 using namespace std;
 
 int main(void)
 {
-    char output[100] = {0, };
-    int i, j, k, n, num_arr[31] = {0, }, input[31] = {0, };
-    cin >> n;
+    int i, j, n, num_arr[31] = {0, }, input[31] = {0, };
+    vector<char> str;
     stack<int> s;
 
+    cin >> n;
     for (i = 1; i <= n; i++) {
         num_arr[i] = i;
     }
     for (i = 1; i <= n; i++) {
         cin >> input[i];
     }
-    i = j = k = 1;
+    i = j = 1;
 
     while (i <= n) 
     {
         s.push(input[i]);
-        output[k++] = 'P';
-        while (s.top() == num_arr[j])
+        str.push_back('P');
+        
+        while (1) 
         {
-            s.pop();
-            cout << "O";
-            output[k++] = 'O';
-            j++;
+            if (s.empty()) break ;
+            if (s.top() == num_arr[j])
+            {
+                s.pop();
+                str.push_back('O');
+                j++;
+            } else {
+                break ;
+            } 
         }
         i++;
     }
-    if (!s.empty()) cout << "impossible" << endl;
-    for (i = 1; i <= n; i++) {
-        cout << output[i];
+    if (!s.empty()) cout << "impossible\n" << endl;
+    else {
+        for (i = 0; i < str.size(); i++) {
+            cout << str[i];
+        }
     } 
-
     return 0;
 }
 

@@ -22,7 +22,7 @@ int main(void)
     cin>>n;
     digit(n);
     while(!s.empty())
-    {
+    {t
         cout << s.top();
         s.pop();
     }

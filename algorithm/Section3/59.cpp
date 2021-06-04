@@ -22,5 +22,6 @@ int main(void)
         cout << endl;
     }
     
+    cout << " ";
     return 0;
 }

@@ -27,7 +27,11 @@ int main(void)
 {
     cin >> n;
     
+<<<<<<< HEAD
     DFS(1);
 
+=======
+    cout << " ";
+>>>>>>> 2ba986809e659b3477ca4f6851f323950af67f8c
     return 0;
 }

@@ -7,7 +7,7 @@ int map[50][50];
 
 int main(void)
 {
-    int n, m, x, y, direction, tmp, nx, ny, cnt = 1, turn_time = 0;
+    int n, m, x, y, tmp_direction, direction, tmp, nx, ny, cnt = 1, turn_time = 0;
     cin >> n >> m >> x >> y >> direction;
 
     int dx[4] = {0, 1, 0, -1};
@@ -28,11 +28,22 @@ int main(void)
         turn_time = 0;
         while (1) {
             if (turn_time == 4) {
+                tmp_direction = direction + 2;
+                if (tmp_direction >= 4) tmp_direction -= 4;
+                nx = x + dx[tmp_direction];
+                ny = y + dy[tmp_direction];
+                if (map[nx][ny] == 0) {
+                    x = nx;
+                    y = ny;
+                    direction = tmp_direction;
+                    break ;
+                }
                 cout << cnt << endl;
                 return 0;
             }
             direction -= 1;
             if (direction < 0) direction = 3;
+            if (direction >= 4) direction -= 4;
             nx = x + dx[direction];
             ny = y + dy[direction];
             if (map[nx][ny] == 0) {
@@ -45,7 +56,6 @@ int main(void)
             turn_time++;
         }
     }
-
     return 0;
 }
     // 일단 입력 받은 지점에 방문했다고 표시를 하고.

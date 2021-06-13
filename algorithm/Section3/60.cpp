@@ -2,53 +2,43 @@
 
 using namespace std;
 
-int  input[11], n, total_sum;
+int input[11], visited[11], n, total_sum, tmp_sum_a, tmp_sum_b, flag;
 
-void DFS(int w) {
-    int  tmp_sum = 0;
-    cout << w << " DFS RUN!" << endl;
-    if (w == 3) return  ;
-
-    if (*(input) == 0) {
-        if (total_sum == 2*tmp_sum)
-        {
-            cout << "YES" << endl;
+void dfs(int k)
+{
+    if (k  == n + 1) {
+        tmp_sum_b = tmp_sum_a = 0;
+        for (int i = 1; i <= n; i++){
+            if (visited[i] == 1)
+                tmp_sum_a += input[i];
+            if (visited[i] == 0)
+                tmp_sum_b += input[i];
         }
-        else {
-            cout << "NO" << endl;
+        if (tmp_sum_a == tmp_sum_b) {
+            flag = 1;
+            return ;
         }
         return ;
     }
-    else {
-        tmp_sum += input[w];
-        cout << "new DFS" << endl;
-        input += 1;
-        DFS(*(input));
-        tmp_sum -= input[w];
-        cout << "new no DFS" << endl;
-        DFS(*(input++));
-    }
+    visited[k] = 1;
+    dfs(k+1);
+    visited[k] = 0;
+    dfs(k+1);
 }
 
-int  main(void)
+int main(void)
 {
-    int i, flag = 0;
     cin >> n;
-
-    for  (i = 0; i < n; i++) 
-    {
+    for (int i = 1; i <= n; i++) {
         cin >> input[i];
-        total_sum  += input[i];
+        total_sum += input[i];
     }
 
-    DFS(input[0]);
-
+    dfs(1);
+    if (flag == 1) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
     return 0;
 }
-
-/* 
-일단  두개의 부분 집합으로 나누어야 한다. 
-그 다음 두  부분집합의 원소의 합을 구해서 비교한다.
-같은 경우가 하나라도 있으면 YES 모두 다르면 NO를 출력한다. 
-
-*/

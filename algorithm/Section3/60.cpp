@@ -20,10 +20,12 @@ void dfs(int k)
         }
         return ;
     }
-    visited[k] = 1;
-    dfs(k+1);
-    visited[k] = 0;
-    dfs(k+1);
+    else {
+        visited[k] = 1;
+        dfs(k+1);
+        visited[k] = 0;
+        dfs(k+1);
+    }
 }
 
 int main(void)

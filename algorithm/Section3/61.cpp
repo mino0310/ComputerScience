@@ -11,7 +11,7 @@ void dfs(int node)
         for (int l = 1; l <= n; l++) {
             if (add[l] == 1) {
                 tmp_sum += input[l];
-            }
+              }
             if (sub[l] == 1) {
                 tmp_sum -= input[l];
             }

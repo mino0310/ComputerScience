@@ -7,20 +7,13 @@ using namespace std;
 void dfs(int l, int val) {
     if (l == n + 1) {
         if (val == m) {
-            cnt++;
-            for (int i = 1; i < l; i++) {
-                cout << path[i] << " ";
-            }
-            cout << endl;
-            
+            cnt++;         
         }
     }
     else {
-        path[l] = a[l];
+       
         dfs(l + 1, val + a[l]);
-        path[l] = -a[l];
         dfs(l + 1, val - a[l]);
-        path[l] = 0;
         dfs(l + 1, val);
     }
 }

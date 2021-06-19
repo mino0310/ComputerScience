@@ -2,26 +2,34 @@
 #include <stack>
 
 using namespace std;
-int n;
 
-void D(int v)
+int n, check[10];
+
+void dfs(int k)
 {
-    if (v > n) return ;
-    cout << v << " ";
-    D(2*v);
-    D(2*v + 1);
+    if (k == n + 1) {
+        for (int i = 1; i <= n; i++) {
+            if (check[i] == 1){
+                cout << i << " ";
+            }
+        }
+        cout << endl;
+        return ;
+    }
+    else {
+        check[k] = 1;
+        dfs(k+1);
+        check[k] = 0;
+        dfs(k+1);
+    }
 }
 
 
 int main(void)
 {
     cin >> n;
-    for (int i = 1; i <= 3; i++)
-    {
-        D(i);
-        cout << endl;
-    }
-    
-    cout << " ";
+
+    dfs(1);
+
     return 0;
 }

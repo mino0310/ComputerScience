@@ -1,6 +1,6 @@
 #include <iostream>
 
-int adj_matrix[21][21], cnt, n, visited[100];
+int adj_matrix[21][21], cnt, n, visited[10];
 using namespace std;
 
 void dfs(int l, int vertex)
@@ -20,7 +20,6 @@ void dfs(int l, int vertex)
         }   
     }
 }
-
 
 int main(void)
 {

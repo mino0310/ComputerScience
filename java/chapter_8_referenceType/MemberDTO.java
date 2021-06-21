@@ -17,4 +17,8 @@ public class MemberDTO {
         this.phone = phone;
         this.email = email;
     }
+    public static void main(String[] args) {
+        MemberDTO test = new MemberDTO("mino");
+        System.out.println("class name = " + MemberDTO.class);
+    }
 }

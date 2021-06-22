@@ -4,14 +4,14 @@
 using namespace std;
 
 
-vector<int> adj_list[21];
+vector<int> adj_list[30];
 
-int n, cnt, check[21];
+int n, cnt, check[30];
 
 
 void dfs(int node)
 {
-    if (node == 5) {
+    if (node == n) {
         cnt++;
         return ;
     }

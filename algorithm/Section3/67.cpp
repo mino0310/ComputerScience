@@ -32,7 +32,7 @@ int main(void)
         cin >> row >> col >> val;
         adj_matrix[row][col] = val;
     }
-    check[1];
+    check[1] = 1;
     dfs(1);
     cout << min_val << endl;
 

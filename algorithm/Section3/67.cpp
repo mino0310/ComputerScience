@@ -2,11 +2,24 @@
 
 using namespace std;
 
-int adj_matrix[21][21], n, check[21], cnt;
+int adj_matrix[21][21], n, check[21], min_val = 2147483647, sum;
 
 void dfs(int node)
 {
-
+    if (node == n) {
+        if (sum < min_val) min_val = sum;
+        return ;
+    } else {
+        for (int i = 1; i <= n; i++) {
+            if (adj_matrix[node][i] != 0 && check[i] == 0) {
+                sum += adj_matrix[node][i];
+                check[i] = 1;
+                dfs(i);
+                sum -= adj_matrix[node][i];
+                check[i] = 0;
+            }
+        }
+    }
 }
 
 
@@ -21,7 +34,7 @@ int main(void)
     }
     check[1];
     dfs(1);
-    cout << cnt << endl;
+    cout << min_val << endl;
 
     return 0;
 }

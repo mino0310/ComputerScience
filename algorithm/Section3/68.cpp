@@ -22,7 +22,6 @@ void dfs(int node) {
                 check[adj_list[node][i].second] = 0;
                 sum -= adj_list[node][i].second;
             }
-
         }
     }
 }
@@ -34,7 +33,6 @@ int main(void)
     for (i = 1; i <= m; i++) {
         cin >> node >> linked_node >> val;
         adj_list[node].push_back(make_pair(linked_node, val));
-        // adj_list[node].push_back({linked_node, val});
     }
     check[1] = 1;
     dfs(1);

@@ -28,8 +28,6 @@ void bfs(int node)
             }
         }
     }
-
-
 }
 
 int main(void)
@@ -39,7 +37,6 @@ int main(void)
         cin >> node >> linked_node;
         adj_list[node].push_back(linked_node);
     }
-    // check[1] = 1;
     bfs(1);
     return 0;
 }

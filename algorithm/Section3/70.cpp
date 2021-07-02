@@ -6,7 +6,6 @@ using namespace std;
 int n, check[21], sum, cnt = 1, min_val[21];
 vector<int> adj_list[21];
 
-
 void bfs(int node)
 {
     queue<int> q;

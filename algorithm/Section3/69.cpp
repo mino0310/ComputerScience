@@ -28,8 +28,6 @@ void bfs(int node)
             }
         }
     }
-
-
 }
 
 int main(void)
@@ -40,7 +38,6 @@ int main(void)
         cout << "asdf";
         adj_list[node].push_back(linked_node);
     }
-    // check[1] = 1;
     bfs(1);
     return 0;
 }

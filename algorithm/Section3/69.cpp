@@ -37,6 +37,7 @@ int main(void)
     int i, node, linked_node;
     for (i = 0; i < 6; i++) {
         cin >> node >> linked_node;
+        cout << "asdf";
         adj_list[node].push_back(linked_node);
     }
     // check[1] = 1;

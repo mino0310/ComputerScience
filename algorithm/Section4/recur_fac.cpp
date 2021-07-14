@@ -10,24 +10,6 @@ int factorial(int a)
     }
 }
 
-int combination(int n, int r)
-{
-    if (n == r || r == 0) return 1;
-    else{
-        return combination(n-1, r-1) + combination(n-1, r);
-    }
-}
-
-int main(void)
-{
-    int n, r;
-    cin >> n >> r;
-    cout << combination(n, r) << endl;
-
-    return 0;
-}
-
-
 /*
 int main(void)
 {

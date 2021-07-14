@@ -11,7 +11,7 @@ int main(void)
     priority_queue<int> pQ;
 
     while (true)
-    {
+    {w
         cin >> a;
         if (a == -1) break;
         if (a == 0)

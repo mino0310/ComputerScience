@@ -58,6 +58,7 @@ int main(void)
             Union(Ed[i].v1, Ed[i].v2);
         }
     }
+    cout << res + 1 << endl;
     cout << res << endl;
     return 0;
 }

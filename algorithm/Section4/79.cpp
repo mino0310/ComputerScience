@@ -42,9 +42,7 @@ int main(void)
             res += cost;
             ch[v] = 1;
             for (i = 0; i < map[v].size(); i++)
-            {
                 Q.push(Edge(map[v][i].first, map[v][i].second));
-            }
         }
     }
     cout << res << endl;

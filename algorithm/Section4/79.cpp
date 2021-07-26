@@ -18,7 +18,6 @@ struct Edge {
     }
 };
 
-
 int main(void)
 {
     priority_queue<Edge> Q;

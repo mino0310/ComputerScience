@@ -4,15 +4,29 @@
 
 using namespace std;
 
-int num[15], n, r, cnt, check[15];
+int num[15], n, r, cnt, check[15], res[15];
 
-void DFS(int idx, int cnt)
+void DFS(int L)
 {
-    if (end_condition) {
+    if (L == r) {
+        for (int j = 0; i < L; j++)
+        {
+            cout << res[j] << " ";
+        }
+        cout << endl;
         return ;
     }
     else {
-        
+        for (int i = 1; i <= n; i++)
+        {
+            if (check[i] == 0)
+            {
+                res[L] = num[i];
+                check[i] = 1;
+                DFS(L + 1);
+                check[i] = 0;
+            }
+        }
     }
 }
 
@@ -24,8 +38,8 @@ int main(void)
     for (i = 1; i <= n; i++){
         cin >> num[i];
     }
-    // check[1] = 1;
-    DFS(1, 1);
+    check[1] = 1;
+    DFS(0);
     
 
 

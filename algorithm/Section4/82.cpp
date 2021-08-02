@@ -40,9 +40,8 @@ int main(void)
     }
     check[1] = 1;
     DFS(0);
-    
 
+    cout << "test" << endl;
 
     return 0;
 }
-ttt tttt

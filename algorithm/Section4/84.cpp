@@ -18,7 +18,7 @@ void DFS(int L, int sum)
     }
     else
     {
-        if (L + schedule[L].first <= n + 1) // DFS를 넘어갈 때 최대값이 정해져있으므로, 이를 조건으로 삼아서 무한 루프에 빠지지 않게 한다.
+        if (L + schedule[L].first <= n + 1) // DFS를 넘어갈 때 최대값이 정해져있으므로, 이를 조건으로 삼아서 미리 조건을 제한해서 무한 루프에 빠지지 않게 한다. 이게 핵심이다.
             DFS(L + schedule[L].first, sum + schedule[L].second); // 다음 스케쥴로 DFS 를 돈다.
         else // 앞선 스케쥴 대로 진행했을 경우 일주일을 초과해버릴 경우엔 그냥 다음 날로 넘어가야 한다.
             DFS(L + 1, sum);  // 바로 다음날로 DFS를 돈다.

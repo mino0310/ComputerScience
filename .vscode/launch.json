@@ -5,6 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch OverTimeManager2",
+            "request": "launch",
+            "mainClass": "c.enums.OverTimeManager2",
+            "projectName": "computer_science_acea0c0c"
+        },
+        {
+            "type": "java",
+            "name": "Launch OverTimeManager",
+            "request": "launch",
+            "mainClass": "c.enums.OverTimeManager",
+            "projectName": "computer_science_acea0c0c"
+        },
+        {
             "name": "(gdb) 시작",
             "type": "cppdbg",
             "request": "launch",

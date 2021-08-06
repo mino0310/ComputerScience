@@ -14,6 +14,7 @@ void DFS(int L)
             cout << res[j] << " ";
         }
         cout << endl;
+        cnt++;
         return ;
     }
     else {
@@ -38,9 +39,7 @@ int main(void)
     for (i = 1; i <= n; i++){
         cin >> num[i];
     }
-    check[1] = 1;
     DFS(0);
-
-
+    cout << cnt << endl;
     return 0;
 }

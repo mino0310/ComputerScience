@@ -65,7 +65,11 @@
         "deque": "cpp",
         "iomanip": "cpp",
         "queue": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "__tree": "cpp",
+        "__undef_macros": "cpp",
+        "memory_resource": "cpp",
+        "list": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

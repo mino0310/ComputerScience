@@ -1,37 +1,35 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <algorithm>
 
 using namespace std;
 
-int n, m, city_distance, home_distance;
-int map[51][51], check[51][51], min_map[51][51];
-vector<pair<int, int> > P, H, RES(15);
-
-int deliery_distance(int x1, int y1, int x2, int y2)
-{
-    return (abs(x1 - x2) + abs(y1 - y2));
-}
+int m, sum, dis;
+int map[51][51], check[15], res = 2147483647;
+vector<pair<int, int> > P, H;
 
 void DFS(int s, int L)
 {
-    if (L == r)
+    if (L == m)
     {
-        for (int j = 0; j < L; j++)
+        sum = 0;
+        for (int j = 0; j < H.size(); j++)
         {
-            for (int k = 0; k < H.size(); k++)
+            dis = 2147483647;
+            for (int k = 0; k < L; k++)
             {
+                dis = min(dis,  abs(H[j].first - P[check[k]].first) + abs(H[j].second - P[check[k]].second));
             }
+            sum += dis;
         }
+        if (sum < res) res = sum;
         return ;
     }
 
     else{
-        for (int i = s; i < n; i++)
-        {   
-            RES[i].first = P[i].first;
-            RES[i].second = P[i].second;
+        for (int i = s; i < P.size(); i++)
+        {
+            check[L] = i;
             DFS(i + 1, L + 1);
         }
     }
@@ -39,7 +37,7 @@ void DFS(int s, int L)
 
 int main(void)
 {
-    int i, j, tmp;
+    int n, i, j;
     cin >> n >> m;
     for (i = 1; i <= n; i++)
     {
@@ -55,7 +53,7 @@ int main(void)
         }
     }
     DFS(0, 0);
-    cout << city_distance << endl;
+    cout << res << endl;
     return 0;
 }
 
